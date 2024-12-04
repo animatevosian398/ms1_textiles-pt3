@@ -1,0 +1,861 @@
+body {
+  background-color: #000000;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  overflow: hidden;
+}
+.sidebar {
+  width: 0;
+  background-color: #000000ce;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: hidden; /* Scroll for overflow content */
+  transition: all 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 900;
+}
+
+.sidebar.open {
+  width: 450px; /* Increased sidebar width */
+  padding: 20px;
+  padding-top: 90px;
+}
+
+.nav-container {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: opacity 0.3s ease;
+  padding-top: 450px;
+  text-align: center;
+  justify-content: flex-start;
+
+  color: white;
+}
+
+.sidebar.open .nav-container {
+  opacity: 1;
+  visibility: visible;
+  height: 90%;
+}
+
+/* Navigation container */
+.nav-container {
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-top: 10px;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.open .nav-container {
+  opacity: 1;
+  visibility: visible;
+}
+*/
+
+/* Color gradient */
+#colorGradient {
+  background: linear-gradient(
+    to bottom,
+    #e63946,
+    #f4a261,
+    #e9c46a,
+    #2a9d8f,
+    #264653,
+    #6d6875,
+    #b5838d
+  );
+  cursor: pointer;
+  border-radius: 5px;
+  width: 5px;
+  height: 40vh;
+  position: relative;
+  left: 10%;
+  top: 25%;
+  transform: translateX(-50%);
+  margin-bottom: 40px;
+  z-index: 10;
+}
+
+.country-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.show-all-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger menu */
+.hamburger-menu {
+  width: 140px;
+  height: 140px;
+  position: fixed;
+  left: 10px;
+  top: 40px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+.mb-3 {
+  margin-top: 0; /* Reduce margin at the top */
+}
+.needle-icon {
+  width: 45%;
+  height: 45%;
+  left: 30px; /* Adjust this value to move the needle more to the left */
+  top: 20px;
+  object-fit: contain;
+  opacity: 70%;
+  position: relative; /* Ensure it's positioned relative for the 'left' property to work */
+  /* color: rgba(51, 57, 225, 0.095);
+  filter: url(#glow-effect); */
+}
+
+/* Main content */
+.main-content {
+  flex-grow: 1;
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  transition: width 0.3s ease;
+  background-color: #000000;
+  z-index: 0.3;
+}
+
+/* .sidebar.open ~ .main-content {
+  width: calc(100% - 180px);
+} */
+
+/* Title styles */
+.title-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  text-align: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #ffffff;
+  font-family: "Raleway Dots", sans-serif;
+  font-weight: 100;
+  font-size: clamp(100px, 8vw, 120px);
+  word-spacing: 20px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.title-main {
+  color: white;
+  display: block;
+  font-size: 100px;
+  margin-bottom: 0.2em;
+  letter-spacing: 0.1em;
+}
+
+.title-subtitle {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Image grid */
+.image-grid {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  background-color: #000000;
+  /* background-color: rgb(213, 210, 210); */
+}
+
+.image-container {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: block;
+  line-height: 0;
+  font-size: 0;
+  z-index: 2;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+  transform: scale(2);
+  background-color: #000000;
+  /* background-color: rgb(213, 210, 210); */
+}
+
+/* Random layout */
+.image-grid.random-layout {
+  display: block;
+  position: absolute;
+}
+.image-grid.random-layout .image-container {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transform: scale(1);
+  animation: fadeIn 5s ease-out forwards;
+}
+
+.selected-image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2000;
+}
+
+/* Add styles for the split layout */
+.overlay-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem;
+}
+
+.metadata-section {
+  flex: 1;
+  padding: 4rem;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metadata-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+#metadataDescription {
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #333;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 1.6;
+  z-index: 100;
+}
+
+.metadata-item {
+  margin-bottom: 1.5rem;
+}
+
+.metadata-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.metadata-value {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.metadata-link {
+  color: #f4a261;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.metadata-link:hover {
+  color: #e9c46a;
+}
+
+.selected-image-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.selected-image-overlay img {
+  max-width: 80vw; /* Limits image to 80% of the viewport width */
+  max-height: 80vh; /* Limits image to 80% of the viewport height */
+  object-fit: contain;
+  padding: 1rem; /* Adds padding to ensure the description is visible */
+  transition: opacity 0.3s ease;
+}
+
+.selected-image-overlay.active img {
+  opacity: 1;
+}
+
+.image-grid:not(.random-layout) .image-container {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image-grid:not(.random-layout) .image-container:hover {
+  transform: scale(1.05);
+}
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10% {
+    opacity: 0.05; /* Adjusted to 0.05 */
+    transform: scale(0.08);
+  }
+  20% {
+    opacity: 0.1; /* Adjusted to 0.1 */
+    transform: scale(0.16);
+  }
+  30% {
+    opacity: 0.15; /* Adjusted to 0.15 */
+    transform: scale(0.24);
+  }
+  40% {
+    opacity: 0.2; /* Adjusted to 0.2 */
+    transform: scale(0.32);
+  }
+  50% {
+    opacity: 0.25; /* Adjusted to 0.25 */
+    transform: scale(0.4);
+  }
+  60% {
+    opacity: 0.3; /* Adjusted to 0.3 */
+    transform: scale(0.48);
+  }
+  70% {
+    opacity: 0.35; /* Adjusted to 0.35 */
+    transform: scale(0.56);
+  }
+  80% {
+    opacity: 0.4; /* Adjusted to 0.4 */
+    transform: scale(0.64);
+  }
+  90% {
+    opacity: 0.45; /* Adjusted to 0.45 */
+    transform: scale(0.72);
+  }
+  100% {
+    opacity: 0.5; /* End at 0.5 opacity */
+    transform: scale(0.8); /* End at 80% scale */
+  }
+}
+
+/* Add these styles */
+.close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2100;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.close-button::before,
+.close-button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.close-button::before {
+  transform: rotate(45deg);
+}
+
+.close-button::after {
+  transform: rotate(-45deg);
+}
+
+.close-button:hover::before,
+.close-button:hover::after {
+  width: 24px;
+}
+
+/* .country-select {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 5px 5px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: white;
+  transition: all 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: center;
+} */
+
+.country-select:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.country-select option {
+  background-color: #000000;
+  color: white;
+}
+
+.country-select {
+  display: none;
+}
+.show-all-btn {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: -10px auto 20px auto;
+  padding: 10px 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 100;
+}
+
+.show-all-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.color-swatches-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  height: 400px;
+  margin-top: -8%;
+}
+.color-swatches {
+  display: block;
+  width: 400px;
+  height: 20px;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 20px;
+  margin-left: 140px;
+  margin-top: 1%;
+}
+
+.color-swatch {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+.globe-icon-button {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+  z-index: 100000;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 20;
+  width: 80%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* .modal-overlay.open {
+  /* display: block; */
+
+.modal-close-button {
+  background: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.regular-button {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  padding: 10px 15px;
+  background-color: #000000;
+  border: 0px solid white; /* White stroke/border */
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.regular-button:hover {
+  background-color: #222222;
+}
+.nav-container {
+  padding-top: 100px; /* Adjust to push the tabs below the logo */
+  text-align: center;
+  color: white;
+}
+
+/* Tabs Styles */
+.nav-tabs {
+  margin-top: 20px;
+  margin-bottom: 10px; /* Add space below tabs */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Slightly thicker line below tabs */
+  justify-content: space-evenly; /* Space tabs evenly across the container */
+  display: flex;
+}
+
+.nav-tabs .nav-link {
+  color: white;
+  border: none;
+  background-color: transparent;
+  padding: 10px 20px; /* Increase padding for better spacing */
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative; /* Allows for the indicator line */
+  font-size: 1.2rem; /* Slightly larger font size */
+}
+
+.nav-tabs .nav-link.active {
+  color: #f4a261;
+}
+
+.nav-tabs .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Position the line just below the tab */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #f4a261; /* Highlight color for the selected tab */
+  border-radius: 2px; /* Smooth edges for the line */
+}
+
+.tab-content {
+  padding: 10px; /* Add more padding for content spacing */
+  color: white;
+}
+
+/* Add hover effect for tabs */
+.nav-tabs .nav-link:hover {
+  color: #f4a261; /* Change color on hover */
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 20px;
+}
+.continent-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.continent-rectangle {
+  width: 150px;
+  height: 50px;
+  background-color: #444;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  visibility: visible; /* Ensure visibility */
+  opacity: 1; /* Ensure fully visible */
+}
+
+.continent-rectangle:hover {
+  background-color: #666;
+}
+.continent {
+  cursor: pointer;
+  fill: #ccc;
+  transition: fill 0.3s;
+}
+
+.continent:hover {
+  fill: #f90;
+}
+#geography-content {
+  padding: 10px;
+  display: flex;
+  height: 100px;
+  flex-direction: column;
+  align-items: center;
+}
+
+#geography-content svg {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0;
+}
+
+.svg-map-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  max-height: 400px;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  margin-top: 10px;
+}
+.about-tab {
+  position: fixed;
+  right: -300px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.about-tab.open {
+  right: 0;
+}
+
+.about-tab-toggle {
+  position: absolute;
+  left: -50px;
+  top: 30%;
+  transform: translateY(-50%) rotate(-90deg);
+  background: #121212;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-content {
+  background: #121212;
+  color: rgb(233, 230, 230);
+  padding: 20px;
+  height: 610px;
+  border-radius: 5px 0 0 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.about-content h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-content ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.about-content li {
+  margin-bottom: 5px;
+}
+.nav-about {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.about-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 8px 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.about-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+}
+
+.about-modal-content {
+  position: relative;
+  background: #2c3e50;
+  color: white;
+  margin: 15% auto;
+  padding: 30px;
+  width: 70%;
+  max-width: 600px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.close-about {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.about-modal-content h2 {
+  margin-top: 0;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.about-modal-content p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-modal-content ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.about-modal-content li {
+  margin-bottom: 8px;
+}
+.technique-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.technique-item {
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.technique-item:hover {
+  background-color: #555;
+}
+#techniqueContent {
+  padding: 10px 0;
+}
+
+.metadata-section {
+  padding: 0px;
+  max-width: 700px;
+}
+
+.carousel-content {
+  text-align: center;
+  font-size: 5em;
+}
+
+.carousel .metadata-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel .metadata-value {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
