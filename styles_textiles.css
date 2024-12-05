@@ -1,7 +1,7 @@
 body {
   background-color: #000000;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Raleway Dots", sans-serif;
   display: flex;
   overflow: hidden;
 }
@@ -280,9 +280,9 @@ h1 {
   font-size: 1em;
   font-weight: bold;
   margin-top: 20px;
-  color: #333;
-  margin-left: 10px;
-  text-align: center;
+  color: #ffffff;
+  margin-left: 0px;
+  text-align: left;
   line-height: 1.6;
   z-index: 100;
 }
@@ -488,16 +488,16 @@ h1 {
   overflow-y: auto;
   padding: 1rem;
   height: 400px;
-  margin-top: -8%;
+  margin-top: -2%;
 }
 .color-swatches {
   display: block;
   width: 400px;
-  height: 20px;
+  height: 50px;
   flex-wrap: wrap;
   gap: 9px;
   padding: 20px;
-  margin-left: 140px;
+  margin-left: 100px;
   margin-top: 1%;
 }
 
@@ -572,8 +572,9 @@ h1 {
   background-color: #222222;
 }
 .nav-container {
-  padding-top: 100px; /* Adjust to push the tabs below the logo */
+  padding-top: 60px; /* Adjust to push the tabs below the logo */
   text-align: center;
+  padding-bottom: 10px;
   color: white;
 }
 
@@ -613,8 +614,12 @@ h1 {
 }
 
 .tab-content {
-  padding: 10px; /* Add more padding for content spacing */
-  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-y: auto; /* Enable scrolling for overflowing content */
+  max-height: calc(100vh - 150px); /* Ensure content fits within viewport */
 }
 
 /* Add hover effect for tabs */
@@ -668,9 +673,10 @@ h1 {
 #geography-content {
   padding: 10px;
   display: flex;
-  height: 100px;
+  height: 290px;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 #geography-content svg {
@@ -837,7 +843,11 @@ h1 {
   background-color: #555;
 }
 #techniqueContent {
-  padding: 10px 0;
+  padding: 20px 10px;
+  max-height: calc(100vh - 150px); /* Limit height to fit viewport */
+  overflow-y: auto; /* Enable scrolling for overflow */
+  display: block; /* Ensure content is visible */
+  position: relative; /* Avoid affecting other tabs */
 }
 
 .metadata-section {
@@ -858,4 +868,85 @@ h1 {
 .carousel .metadata-value {
   font-size: 1.2em;
   margin-bottom: 20px;
+}
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ccc;
+}
+
+.accordion-header {
+  background: #f5f5f5;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  width: 100%;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+  background: #fff;
+}
+
+.accordion-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.accordion-content .material-item {
+  cursor: pointer;
+  margin: 5px 0;
+  color: #0073e6;
+}
+
+.accordion-content .material-item:hover {
+  text-decoration: underline;
+}
+.sidebar-tab {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  z-index: 1000;
+}
+
+.sidebar-tab-toggle {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5px 0 0 5px;
+}
+
+.sidebar-content {
+  display: none;
+  width: 300px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-tab.open .sidebar-content {
+  display: block;
+}
+.sidebar.open {
+  width: 450px; /* Ensure the sidebar is wide enough */
+  padding: 20px;
+  padding-top: 90px;
+  overflow-y: auto; /* Add scrolling for overflowing content */
+}
+.logo {
+  width: 130%;
+  margin-left: 90%;
+  margin-top: -32%;
 }
