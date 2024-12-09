@@ -643,6 +643,8 @@ h1 {
   height: auto;
   margin: 0;
   margin-top: 200px;
+  overflow: visible;
+  position: relative;
 }
 
 .svg-map-container {
@@ -654,6 +656,7 @@ h1 {
   align-items: center;
   margin: 20px 0;
   margin-top: 300px;
+  position: relative;
 }
 .about-tab {
   position: fixed;
@@ -689,6 +692,7 @@ h1 {
   height: 610px;
   border-radius: 5px 0 0 5px;
   font-family: "Montserrat", sans-serif;
+  overflow-y: scroll;
 }
 
 .about-content h2 {
@@ -1012,6 +1016,7 @@ h1 {
   width: 130%;
   margin-left: 90%;
   margin-top: -32%;
+  z-index: 2000;
 }
 .image-container {
   position: relative;
@@ -1155,4 +1160,33 @@ h1 {
 .process-item:hover {
   background-color: purple; /* Lighter shade for hover */
   transform: scale(1.05);
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+#metadataMaterial {
+  color: white;
 }
