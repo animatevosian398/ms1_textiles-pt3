@@ -348,7 +348,7 @@ function displayRandomImages() {
   imageGrid.className = "image-grid random-layout";
   imageGrid.innerHTML = "";
 
-  displayData = colorData.slice(0, 2000);
+  displayData = colorData.slice(0, 8000);
 
   displayData.forEach((imageData, index) => {
     const divContainer = document.createElement("div");
@@ -427,7 +427,8 @@ function displayColorGrid(images, isFilteringMaterial = false) {
     img.crossOrigin = "Anonymous";
     (img.src = isFilteringMaterial
       ? imageData.image.thumbnail + "&max=200"
-      : imageData.image),
+      : //  + "&max=200"
+        imageData.image + "&max=200"),
       // + "&max=200";
       (img.style.width = "100%");
     img.style.height = "100%";
@@ -624,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
 fetch("./data/data_NEW.json")
   .then((response) => response.json())
   .then((jsonData) => {
-    const imagePaths = jsonData.slice(0, 2000).map((item) => ({
+    const imagePaths = jsonData.slice(0, 8000).map((item) => ({
       image: item.image.thumbnail + "&max=200",
       // + "&max=200",
       // image: `${folderPath}${item.filename || `image_${item.id}.jpg`}`,
@@ -720,10 +721,6 @@ function filterByContinent(continent) {
 
   // Highlight the clicked region in the SVG
   highlightPaths(continent);
-  if (filteredTextiles.length === 0) {
-    imageGrid.innerHTML =
-      "<p>No textiles found for the selected material or technique.</p>";
-  }
 }
 
 // Function to highlight paths in the SVG
@@ -1126,25 +1123,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const aboutBtn = document.querySelector(".about-btn");
-//   const aboutModal = document.querySelector(".about-modal");
-//   const closeAbout = document.querySelector(".close-about");
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutBtn = document.querySelector(".about-btn");
+  const aboutModal = document.querySelector(".about-modal");
+  const closeAbout = document.querySelector(".close-about");
 
-//   aboutBtn.addEventListener("click", () => {
-//     aboutModal.style.display = "block";
-//   });
+  aboutBtn.addEventListener("click", () => {
+    aboutModal.style.display = "block";
+  });
 
-//   closeAbout.addEventListener("click", () => {
-//     aboutModal.style.display = "none";
-//   });
+  closeAbout.addEventListener("click", () => {
+    aboutModal.style.display = "none";
+  });
 
-//   window.addEventListener("click", (e) => {
-//     if (e.target === aboutModal) {
-//       aboutModal.style.display = "none";
-//     }
-//   });
-// });
+  window.addEventListener("click", (e) => {
+    if (e.target === aboutModal) {
+      aboutModal.style.display = "none";
+    }
+  });
+});
 
 fetch("./data/data_NEW.json")
   .then((response) => response.json())
@@ -1384,8 +1381,8 @@ fetch("./data/data_NEW.json")
     console.error("Error categorizing materials or techniques:", error)
   );
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all the technique items
-  const techniqueItems = document.querySelectorAll(".technique-item");
+  // Select all the technique items (assuming you have them)
+  const techniqueItems = document.querySelectorAll(".technique-item"); // Replace with your actual class or element selector
 
   // Get the category display element
   const categoryDisplay = document.getElementById("category-display");
@@ -1431,19 +1428,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-// // Loop through each technique item and add a click event listener
-// techniqueItems.forEach((item) => {
-//   item.addEventListener("click", function () {
-//     // Get the category from the data-category attribute of the clicked item
-//     const category = this.getAttribute("process-item");
+// Loop through each technique item and add a click event listener
+techniqueItems.forEach((item) => {
+  item.addEventListener("click", function () {
+    // Get the category from the data-category attribute of the clicked item
+    const category = this.getAttribute("process-item");
 
-//     // Set the category text to the category display element
-//     categoryDisplay.textContent = category;
+    // Set the category text to the category display element
+    categoryDisplay.textContent = category;
 
-//     // Display the category display (if hidden)
-//     categoryDisplay.style.display = "block";
-//   });
-// });
+    // Display the category display (if hidden)
+    categoryDisplay.style.display = "block";
+  });
+});
 document.addEventListener("DOMContentLoaded", () => {
   // Event delegation for material items
   document.addEventListener("click", (event) => {
