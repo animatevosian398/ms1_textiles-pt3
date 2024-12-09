@@ -21,7 +21,7 @@
 
 <body>
   <div class="hamburger-menu">
-    <svg width="0" height="0">
+    <!-- <svg width="0" height="0">
       <defs>
         <filter id="glow-effect" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="10" result="blurred" />
@@ -32,7 +32,7 @@
           </feMerge>
         </filter>
       </defs>
-    </svg>
+    </svg> -->
     <img src="images/Weave-icon.png" alt="Menu" class="needle-icon" />
     <div class="hamburger-line"></div>
     <div class="hamburger-line"></div>
@@ -41,7 +41,7 @@
   </div>
   <div class="nav-about">
     <!-- <button class="about-btn">About</button> -->
-    <div class="about-modal">
+    <!-- <div class="about-modal">
       <div class="about-modal-content">
         <span class="close-about">&times;</span>
         <h2>About This Project</h2>
@@ -63,7 +63,7 @@
           global audience.
         </p>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="sidebar">
     <div class="nav-container">
@@ -77,8 +77,8 @@
          
             <div id="newmap">
               <select class="country-select w-100"></select>
-              <svg>
-                <?xml version="1.0" encoding="utf-8"?>
+              <svg
+                ?xml version="1.0" encoding="utf-8"?>
                 <!-- Generator: Adobe Illustrator 26.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                 <svg
                   version="1.1"
@@ -86,10 +86,10 @@
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
                   x="0px"
-                  y="50px"
-                  viewBox="0 0 520 320"
+                  y="60px"
+                  viewBox="0 0 530 320"
                   style="enable-background: new 0 0 468 239"
-                  style="transform: scale(2.5); transform-origin: center"
+                  style="transform: scale(2.6); transform-origin: center"
                   xml:space="preserve"
                   >
                   <style>
@@ -1108,10 +1108,10 @@
       <div class="about-content">
         <h2>About This Project</h2>
         <p>
-          Textiles of the World is an interactive exploration of global
+          Worn Worlds: A Textile Exhibition is an interactive exploration of global
           textile traditions and material culture. This digital collection
-          showcases textile artifacts from various cultures, highlighting
-          their historical significance, craftsmanship, and cultural context.
+          showcases the Smithsonian Institution's textile artifacts from various places, highlighting
+          their craftsmanship, and cultural context.
         </p>
         <p>Users can explore textiles by:</p>
         <ul>
@@ -1123,6 +1123,10 @@
           This project aims to preserve and share knowledge about traditional
           textile crafts while making these cultural artifacts accessible to a
           global audience.
+        </p>
+        <p>
+          "Worn Worlds" is a reference to Peter Stallybrass' piece on "Clothes, Mourning, and The Life of Things".
+          As Stallybrass writes, textiles "endure, but [they are] mortal," observing their unique role as both enduring objects and ephemeral carriers of memory and culture.
         </p>
       </div>
      
@@ -1157,14 +1161,18 @@
             <div class="metadata-label">Description</div>
             <div class="metadata-value" id="metadataDescription"></div>
           </li>
-          <li class="metadata-item">
-            <div class="metadata-label">More Information</div>
-            <div class="metadata-value">
-              <a id="metadataLink" href="#" target="_blank" class="metadata-link">
-                View in Collection
-              </a>
-            </div>
-          </li>
+            <li class="metadata-item">
+              <div class="metadata-label">Material & Process</div>
+              <div class="metadata-value" id="metadataMaterial"></div>
+            </li>
+            <li class="metadata-item">
+              <div class="metadata-label">More Information</div>
+              <div class="metadata-value">
+                <a id="metadataLink" href="#" target="_blank" class="metadata-link">
+                  View in Collection
+                </a>
+              </div>
+              </li>
         </ul>
       </div>
 
