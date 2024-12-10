@@ -9,7 +9,8 @@ body {
   display: flex;
   flex-direction: column;
   width: 0;
-  background-color: #000000ce;
+  /* background-color: #000000ce; */
+  background-color: rgba(0, 0, 0, 0.561);
   padding: 0;
   height: 100vh;
   overflow: hidden;
@@ -569,6 +570,8 @@ h1 {
 }
 
 .nav-tabs .nav-link {
+  font-family: "Raleway Dots", sans-serif;
+  font-weight: bold;
   color: white;
   border: none;
   background-color: transparent;
@@ -576,7 +579,7 @@ h1 {
   text-align: center;
   transition: all 0.3s ease;
   position: relative; /* Allows for the indicator line */
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   flex: 1;
 }
 .nav-tabs .nav-link:hover {
@@ -587,7 +590,7 @@ h1 {
   text-align: center;
   transition: all 0.3s ease;
   position: relative; /* Allows for the indicator line */
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   flex: 1;
 }
 .nav-tabs .nav-link.active {
@@ -666,33 +669,38 @@ h1 {
   width: 300px;
   transition: right 0.3s ease-in-out;
   z-index: 1000;
+  stroke: white 1px solid;
 }
 
 .about-tab.open {
   right: 0;
+  width: 600px;
 }
 
 .about-tab-toggle {
   position: absolute;
-  left: -50px;
+  left: -67px;
   top: 30%;
   transform: translateY(-50%) rotate(-90deg);
-  background: #121212;
-  color: white;
+  background: #ffffff00;
+  color: rgb(255, 255, 255);
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px 5px 0 0;
   font-family: "Montserrat", sans-serif;
+  border: rgba(255, 255, 255, 0.72) 3px dotted;
 }
 
 .about-content {
   background: #121212;
-  color: rgb(233, 230, 230);
+  color: rgb(233, 230, 231);
   padding: 20px;
   height: 610px;
+  /* width: 300px; */
   border-radius: 5px 0 0 5px;
   font-family: "Montserrat", sans-serif;
   overflow-y: scroll;
+  /* border: rgba(255, 255, 255, 0.886) 1px dotted; */
 }
 
 .about-content h2 {
@@ -730,6 +738,7 @@ h1 {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s ease;
+  stroke: white 1px solid;
 }
 
 .about-btn:hover {
@@ -1055,7 +1064,7 @@ h1 {
   /* overflow-y: auto; Scrollable content */
 }
 .material-category-header {
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-weight: bold;
   margin: 10px 0;
   padding: 10px;
