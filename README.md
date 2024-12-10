@@ -68,3 +68,22 @@ This project was inspired by the **Smithsonian's rich collections** and guided b
 - **Ani**
 
 **Explore the vibrant tapestry of textiles at the crossroads of art, history, and material culture.**
+
+## Images
+
+![screenshot](./images/hero-image.png)
+
+![screenshot](./images/filter_wool.png)
+
+![screenshot](./images/needlepoint.png)
+
+![screenshot](./images/modal-band.png)
+
+Screen recording of landing page:
+https://drive.google.com/file/d/19s1JUF6vV5noLkoIMpKAVGzFErmb3n_1/view?usp=sharing
+
+Screen recording of material & process filtering:
+https://drive.google.com/file/d/1Bvt8Gqo8i0QvfCs5B9Y9HU7smZdFjCWk/view?usp=sharing
+
+Link to Github Page:
+https://animatevosian398.github.io/ms1_textiles-pt3/NEWMAP.HTML
