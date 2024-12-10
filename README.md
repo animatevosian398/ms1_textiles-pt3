@@ -58,7 +58,7 @@ This project was inspired by the **Smithsonian's rich collections** and guided b
 
 1. Clone the repository from GitHub.
 2. Open the project folder and ensure the required files are in place.
-3. Launch `index.html` in a browser to view the application.
+3. Launch `NEWMAP.html` in a browser to view the application.
 
 ## Authors
 
