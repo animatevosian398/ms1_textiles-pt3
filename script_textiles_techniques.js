@@ -339,6 +339,7 @@ function transformDataForGrid(data) {
       place: item.place || "Unknown", // Fallback place
       period: item.period || "Unknown", // Fallback period
       description: item.description || "No description available.", // Fallback description
+      material: item.medium || "No material or process information available.",
       link: item.link || "", // Optional link
     },
   }));
@@ -636,6 +637,7 @@ fetch("./data/data_NEW.json")
         place: item.place,
         period: item.period,
         description: item.description,
+        material: item.medium,
         link: item.link,
       },
     }));
