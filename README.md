@@ -60,7 +60,7 @@ This project was inspired by the **Smithsonian's rich collections** and guided b
 2. Open the project folder and ensure the required files are in place.
 3. Launch `NEWMAP.html` in a browser to view the application.
 
-### Note: This version slices the full dataset of approximately 12,000 items to only 8,000. You can edit the slice, or remove, depending on how many images/items you want to load.
+### Note: This version slices the full dataset of approximately 12,000 items to 5,000. You can edit the slice, or remove, depending on how many images/items you want to load.
 
 ## Authors
 
