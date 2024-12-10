@@ -349,7 +349,7 @@ function displayRandomImages() {
   imageGrid.className = "image-grid random-layout";
   imageGrid.innerHTML = "";
 
-  displayData = colorData.slice(0, 8000);
+  displayData = colorData.slice(0, 5000);
 
   displayData.forEach((imageData, index) => {
     const divContainer = document.createElement("div");
@@ -626,7 +626,7 @@ document.addEventListener("DOMContentLoaded", () => {
 fetch("./data/data_NEW.json")
   .then((response) => response.json())
   .then((jsonData) => {
-    const imagePaths = jsonData.slice(0, 8000).map((item) => ({
+    const imagePaths = jsonData.slice(0, 5000).map((item) => ({
       image: item.image.thumbnail + "&max=200",
       // + "&max=200",
       // image: `${folderPath}${item.filename || `image_${item.id}.jpg`}`,
