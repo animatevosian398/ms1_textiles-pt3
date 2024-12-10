@@ -730,7 +730,7 @@ function highlightPaths(selectedContinent) {
   svgPaths.forEach((path) => {
     const continent = path.getAttribute("data-continent");
     if (continent === selectedContinent) {
-      path.style.fill = "purple"; // Highlight matching region
+      path.style.fill = "grey"; // Highlight matching region
     } else {
       path.style.fill = "#1da1f2"; // Reset color for non-matching regions
     }
