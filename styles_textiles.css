@@ -1157,10 +1157,14 @@ h1 {
 /* Style for the "clicked" state */
 .material-item.active,
 .process-item.active {
-  background-color: purple; /* Highlight background for material items */
+  background-color: rgb(
+    216,
+    216,
+    216
+  ); /* Highlight background for material items */
   color: #ffffff; /* Change text color for better contrast */
   transform: scale(1.05); /* Slightly enlarge the clicked item */
-  border: 2px solid purple; /* Optional: Add a border for visibility */
+  border: 2px solid purple;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
