@@ -73,6 +73,8 @@ This project was inspired by the **Smithsonian's rich collections** and guided b
 
 ![screenshot](./images/hero-image.png)
 
+![screenshot](./images/filters-map.png)
+
 ![screenshot](./images/filter_wool.png)
 
 ![screenshot](./images/needlepoint.png)
