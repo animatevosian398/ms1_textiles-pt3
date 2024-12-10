@@ -730,12 +730,13 @@ function highlightPaths(selectedContinent) {
   svgPaths.forEach((path) => {
     const continent = path.getAttribute("data-continent");
     if (continent === selectedContinent) {
-      path.style.fill = "grey"; // Highlight matching region
+      path.classList.add("highlighted");
     } else {
-      path.style.fill = "#1da1f2"; // Reset color for non-matching regions
+      path.classList.remove("highlighted");
     }
   });
 }
+
 // First, create the technique extractor that can handle large datasets
 function extractTechniquesFromLargeDataset(data) {
   // Initialize storage for techniques
