@@ -427,9 +427,9 @@ function displayColorGrid(images, isFilteringMaterial = false) {
     const img = new Image();
     img.crossOrigin = "Anonymous";
     (img.src = isFilteringMaterial
-      ? imageData.image.thumbnail
+      ? imageData.image.thumbnail + "&max=300"
       : //  + "&max=200"
-        imageData.image),
+        imageData.image + "&max=300"),
       // + "&max=200";
       (img.style.width = "100%");
     img.style.height = "100%";
@@ -627,8 +627,7 @@ fetch("./data/data_NEW.json")
   .then((response) => response.json())
   .then((jsonData) => {
     const imagePaths = jsonData.slice(0, 5000).map((item) => ({
-      image: item.image.thumbnail,
-      // + "&max=200",
+      image: item.image.thumbnail + "&max=300",
       // image: `${folderPath}${item.filename || `image_${item.id}.jpg`}`,
       id: item.id,
       fullSizeUrl: item.image.content,
