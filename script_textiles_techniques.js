@@ -426,12 +426,15 @@ function displayColorGrid(images, isFilteringMaterial = false) {
 
     const img = new Image();
     img.crossOrigin = "Anonymous";
-    (img.src = isFilteringMaterial
-      ? imageData.image.thumbnail + "&max=300"
-      : //  + "&max=200"
-        imageData.image + "&max=300"),
-      // + "&max=200";
-      (img.style.width = "100%");
+    // (img.src = isFilteringMaterial
+    //   ? imageData.image.thumbnail + "&max=200"
+    //   : //  + "&max=200"
+    //     imageData.image + "&max=200"),
+    //   // + "&max=200";
+    img.src = isFilteringMaterial
+      ? `${imageData.image.thumbnail}&max=200&nocache=${Date.now()}`
+      : `${imageData.image}&max=200&nocache=${Date.now()}`; // Add nocache parameter
+    img.style.width = "100%";
     img.style.height = "100%";
     img.style.objectFit = "cover";
     img.style.transform = "scale(2)";
@@ -626,8 +629,8 @@ document.addEventListener("DOMContentLoaded", () => {
 fetch("./data/data_NEW.json")
   .then((response) => response.json())
   .then((jsonData) => {
-    const imagePaths = jsonData.slice(0, 5000).map((item) => ({
-      image: item.image.thumbnail + "&max=300",
+    const imagePaths = jsonData.slice(0, 100).map((item) => ({
+      image: item.image.thumbnail + "&max=200",
       // image: `${folderPath}${item.filename || `image_${item.id}.jpg`}`,
       id: item.id,
       fullSizeUrl: item.image.content,
